@@ -1,10 +1,15 @@
 pipeline {
-    agent any
-
+    agent {
+        docker { image 'docker:19.03.12' }
+    }
     stages {
-        stage('Hello') {
+        stage('Run Hello-World Docker Container') {
             steps {
-                echo 'Hello World'
+                script {
+                    docker.image('hello-world').inside {
+                        sh 'echo "Hello, World from Docker!"'
+                    }
+                }
             }
         }
     }
