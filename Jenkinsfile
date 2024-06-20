@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout your repository
-                checkout https://github.com/gokulnandan-0/test-jenkins
+                checkout scm
             }
         }
         
